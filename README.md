@@ -2,9 +2,9 @@
 
 This repository contains the Julia code to reproduce the results in the following manuscript:
 
-T. Montoya and D. W. Zingg, "Efficient Entropy-Stable Discontinuous Spectral-Element Methods Using Tensor-Product Summation-by-Parts Operators on Triangles and Tetrahedra", 2023.
+T. Montoya and D. W. Zingg, "Efficient Entropy-Stable Discontinuous Spectral-Element Methods Using Tensor-Product Summation-by-Parts Operators on Triangles and Tetrahedra", In preparation, 2023.
 
-Please cite the above manuscript if you use this repository or the underlying spectral-element framework [StableSpectralElements.jl](https://github.com/tristanmontoya/StableSpectralElements.jl) in your research. Any questions should be directed to the corresponding author at 
+Please cite the above manuscript if you use this repository or the underlying spectral-element framework [StableSpectralElements.jl](https://github.com/tristanmontoya/StableSpectralElements.jl) in your research. Any questions regarding the content of the manuscript or technical issues with the code should be directed to the corresponding author at [tristan.montoya@mail.utoronto.ca](mailto:tristan.montoya@mail.utoronto.ca).
 
 ## Abstract
 We present a new class of efficient and robust discontinuous spectral-element methods of arbitrary order for nonlinear hyperbolic systems of conservation laws on curved triangular and tetrahedral unstructured grids. Such discretizations employ a recently introduced family of sparse tensor-product summation-by-parts (SBP) operators in collapsed coordinates within an entropy-conservative modal formulation, which is rendered entropy stable when a dissipative numerical flux is used at element interfaces. The proposed algorithms exploit the structure of such SBP operators alongside that of the Proriol-Koornwinder-Dubiner polynomial basis used to represent the numerical solution on the reference triangle or tetrahedron, and a weight-adjusted approximation is employed in order to efficiently invert the local mass matrix for curvilinear elements. Using such techniques, we obtain an improvement in time complexity from $O(p^{2d})$ to $O(p^{d+1})$ relative to existing entropy-stable formulations using multidimensional SBP operators not possessing such a tensor-product structure, where $p$ is the polynomial degree of the approximation and $d$ is the number of spatial dimensions. The number of required entropy-conservative two-point flux evaluations between pairs of quadrature nodes is accordingly reduced by a factor ranging from 1.52 at $p=2$ to 4.52 at $p=10$ for triangles, and from 1.88 at $p=2$ to 10.99 at $p=10$ for tetrahedra. Through numerical experiments involving smooth solutions to the compressible Euler equations on isoparametric triangular and tetrahedral grids, the proposed methods using tensor-product SBP operators are shown to exhibit similar levels of accuracy for a given mesh and polynomial degree to those using multidimensional operators based on symmetric quadrature rules, with both approaches achieving order $p+1$ convergence with respect to the element size in the presence of interface dissipation as well as exponential convergence with respect to the polynomial degree. Furthermore, both operator families are shown to give rise to entropy-stable schemes which exhibit excellent robustness for test problems characteristic of under-resolved turbulence simulations. Such results suggest that the algorithmic advantages resulting from the use of tensor-product operators are obtained without compromising accuracy or robustness, enabling the efficient extension of the benefits of entropy stability to higher polynomial degrees than previously considered for triangular and tetrahedral elements.
@@ -190,8 +190,12 @@ run_driver(EulerPRefinementDriver(4,9, C_t=0.005,
     M0=4, T=14.0, mesh_perturb = 1/16, 
     load_from_file=true, overwrite=false, test_type=2))
 ```
+
 The Mach 0.7 cases can be run by substituting `mach_number=0.1` for `mach_number=0.7` in the above. Additionally, the cases can be run with an entropy-conservative numerical flux by substituting `numerical_flux="LaxFriedrichsNumericalFlux"` for  `numerical_flux="EntropyConservativeNumericalFlux"` as in the accuracy tests.
 
+### Reproducing manuscript figures
+
+The following table lists the Jupyter notebooks within the `notebooks` subdirectory which must be run in order to generate each figure in the manuscript.
 
 |Figure| Description | Notebook(s)|
 |---|---|---|
@@ -204,11 +208,7 @@ The Mach 0.7 cases can be run by substituting `mach_number=0.1` for `mach_number
 7 | Convergence with respect to $h$ and $p$ | [accuracy_tri_h_refine.ipynb](https://github.com/tristanmontoya/EntropyStableDSEM/tree/main/notebooks/accuracy_tri_h_refine.ipynb) </br>[accuracy_tri_p_refine.ipynb](https://github.com/tristanmontoya/EntropyStableDSEM/tree/main/notebooks/accuracy_tri_p_refine.ipynb) </br>[accuracy_tet_h_refine.ipynb](https://github.com/tristanmontoya/EntropyStableDSEM/tree/main/notebooks/accuracy_tet_h_refine.ipynb) </br>[accuracy_tet_p_refine.ipynb](https://github.com/tristanmontoya/EntropyStableDSEM/tree/main/notebooks/accuracy_tet_p_refine.ipynb)
 8 | Robustness tests (Kelvin-Helmholtz instability and Taylor-Green vortex) | [robustness_tri_khi.ipynb](https://github.com/tristanmontoya/EntropyStableDSEM/tree/main/notebooks/robustness_tri_khi.ipynb) </br>[robustness_tet_tgv_ma01.ipynb](https://github.com/tristanmontoya/EntropyStableDSEM/tree/main/notebooks/robustness_tet_tgv_ma01.ipynb) </br>[robustness_tet_tgv_ma07.ipynb](https://github.com/tristanmontoya/EntropyStableDSEM/tree/main/notebooks/robustness_tet_tgv_ma07.ipynb)
 
-The data files directly used to generate the figures in the manuscript are provided in the `results` directory in HDF5-compatible [JLD2 format](https://github.com/JuliaIO/JLD2.jl), although the raw simulation datasets (which can be produced by running the above scripts) are not provided due to their large file sizes. 
-
-## License
-
-This software is released under the [GPLv3 license](https://www.gnu.org/licenses/gpl-3.0.en.html).
+ For Figures 7 and 8, the error norms and entropy histories required to generate the figures are provided in the `results` subdirectory, although the raw simulation datasets are not included in this repository due to their large file sizes. Such datasets can be generated by running the code as described above or obtained from the authors upon request. The figures generated using such notebooks are identical to those appearing in the manuscript, and are provided in the `plots` directory. 
 
 ## License
 
