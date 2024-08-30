@@ -1,8 +1,8 @@
-# [Efficient Entropy-Stable Discontinuous Spectral-Element Methods Using Tensor-Product Summation-by-Parts Operators on Triangles and Tetrahedra](https://arxiv.org/abs/2312.07874)
+# Efficient Entropy-Stable Discontinuous Spectral-Element Methods Using Tensor-Product Summation-by-Parts Operators on Triangles and Tetrahedra
 
 This repository contains the Julia code to reproduce the results in the following manuscript:
 
-T. Montoya and D. W. Zingg, "Efficient Entropy-Stable Discontinuous Spectral-Element Methods Using Tensor-Product Summation-by-Parts Operators on Triangles and Tetrahedra", Submitted preprint, arXiv:2312.07874, 2023.
+T. Montoya and D. W. Zingg, [Efficient Entropy-Stable Discontinuous Spectral-Element Methods Using Tensor-Product Summation-by-Parts Operators on Triangles and Tetrahedra](https://arxiv.org/abs/2312.07874), Journal of Computational Physics 516:113360, 2024.
 
 Please cite the above manuscript if you use this repository or the underlying spectral-element framework [StableSpectralElements.jl](https://github.com/tristanmontoya/StableSpectralElements.jl) in your research. Any questions regarding the content of the manuscript or technical issues with the code should be directed to the corresponding author at [tristan.montoya@mail.utoronto.ca](mailto:tristan.montoya@mail.utoronto.ca).
 
