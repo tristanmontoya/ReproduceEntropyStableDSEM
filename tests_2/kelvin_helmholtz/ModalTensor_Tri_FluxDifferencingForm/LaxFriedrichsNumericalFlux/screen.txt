@@ -1,4 +1,0 @@
-Starting refinement from p = 4
-Starting refinement from p = 4
-p = 4
-end time: 0.8789062499999668
