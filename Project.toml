@@ -1,7 +1,7 @@
 name = "ReproduceEntropyStableDSEM"
 uuid = "827a8b5e-7ef9-4adf-9a1c-17db6347c3b3"
 authors = ["Tristan Montoya <montoya.tristan@gmail.com>"]
-version = "0.2.0"
+version = "0.3.0"
 
 [deps]
 ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
@@ -31,7 +31,6 @@ LinearMaps = "3"
 MathTeXEngine = "0.5"
 OrdinaryDiffEq = "6"
 Plots = "1"
-Revise = "3"
 StableSpectralElements = "0.2.11"
 Suppressor = "0.2"
 TimerOutputs = "0.5"
