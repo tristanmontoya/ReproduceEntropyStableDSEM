@@ -6,6 +6,7 @@ using TimerOutputs
 using LaTeXStrings
 using Suppressor
 using StableSpectralElements
+using LinearAlgebra
 
 export run_driver
 

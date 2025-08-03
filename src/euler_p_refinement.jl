@@ -146,6 +146,7 @@ function run_driver(driver::EulerPRefinementDriver)
             initial_data = TaylorGreenVortex(conservation_law, mach_number)
             a = 1.0
         end
+    else
         @error "Test type should be 1 for accuracy or 2 for robustness"
     end
 
